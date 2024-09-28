@@ -1,0 +1,33 @@
+
+### day 1 part 1 example
+POST localhost:8080/day/01/part/1
+Content-Type: text/plain
+
+< ../data/day_01_example_part_1.txt
+
+###
+
+### day 1 part 2 example
+POST localhost:8080/day/01/part/2
+Content-Type: text/plain
+
+< ../data/day_01_example_part_2.txt
+
+###
+
+### day 1 part 1
+POST localhost:8080/day/01/part/1
+Content-Type: text/plain
+
+< ../data/day_01.txt
+
+###
+
+### day 1 part 2
+POST localhost:8080/day/01/part/2
+Content-Type: text/plain
+
+< ../data/day_01.txt
+
+###
+

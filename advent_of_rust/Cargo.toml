@@ -1,0 +1,15 @@
+[package]
+name = "advent-of-rust-cli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.18", features = ["derive"] }
+clap-num = "1.1.1"
+
+[[bin]]
+name = "cli"
+path = "src/cli.rs"
+
+[dev-dependencies]
+ctor = "0.2.8"

@@ -1,0 +1,14 @@
+syntax = "proto3";
+package api;
+
+service Api {
+  rpc ProcessDay01(AdventOfCodeRequest) returns (AdventOfCodeResponse);
+}
+
+message AdventOfCodeRequest {
+  string data = 1;
+}
+
+message AdventOfCodeResponse {
+  string result = 1;
+}

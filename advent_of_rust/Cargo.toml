@@ -6,6 +6,8 @@ edition = "2021"
 [dependencies]
 clap = { version = "4.5.18", features = ["derive"] }
 clap-num = "1.1.1"
+log = "0.4.22"
+rust-crypto = "0.2.36"
 
 [[bin]]
 name = "cli"

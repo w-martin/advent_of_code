@@ -1,10 +1,12 @@
 use clap::Parser;
 use clap_num::number_range;
+use std::path::PathBuf;
 
 pub mod year_2015 {
     pub mod day_01_solvers;
     pub mod day_02_solvers;
     pub mod day_03_solvers;
+    pub mod day_04_solvers;
 }
 pub mod year_2023 {
     pub mod day_01_solvers;
@@ -23,26 +25,25 @@ fn parse_part(s: &str) -> Result<u8, String> {
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Cli {
-    #[clap(short, value_parser=parse_year)]
+    #[clap(long, value_parser=parse_year)]
     year: u16,
-    #[clap(short, value_parser=parse_day)]
+    #[clap(long, value_parser=parse_day)]
     day: u8,
-    #[clap(short, value_parser=parse_part)]
+    #[clap(long, value_parser=parse_part)]
     part: u8,
+    #[clap(long)]
+    data_root: PathBuf
 }
 
 fn main() {
-    let cli = Cli::parse();
-    let year = cli.year;
-    let day = cli.day;
-    let part = cli.part;
+    let args = Cli::parse();
+    println!("Running day {} part {} data_root {}", args.day, args.part, args.data_root.to_string_lossy());
 
-    println!("Running day {} part {}", day, part);
-
-    let filename = format!("../data/{}/day_{:02}.txt", year, day);
+    let filename = args.data_root.join(args.year.to_string()).join(format!("day_{:02}.txt", args.day));
+    println!("Reading file: {}", filename.to_string_lossy());
     let data = std::fs::read_to_string(filename).expect("Unable to read file");
     let mut result = -1;
-    match (year, day, part) {
+    match (args.year, args.day, args.part) {
         (2015, 1, 1) => {
             result = year_2015::day_01_solvers::solve_part_1(data);
         }
@@ -61,6 +62,12 @@ fn main() {
         (2015, 3, 2) => {
             result = year_2015::day_03_solvers::solve_part_2(data);
         }
+        (2015, 4, 1) => {
+            result = year_2015::day_04_solvers::solve_part_1(data);
+        }
+        (2015, 4, 2) => {
+            result = year_2015::day_04_solvers::solve_part_2(data);
+        }
         (2023, 1, 1) => {
             result = year_2023::day_01_solvers::solve_part_1(data);
         }
@@ -68,7 +75,7 @@ fn main() {
             result = year_2023::day_01_solvers::solve_part_2(data);
         }
         _ => {
-            println!("Day {} Part {} not implemented", day, part);
+            println!("Day {} Part {} not implemented", args.day, args.part);
         }
     }
     println!("{}", result);

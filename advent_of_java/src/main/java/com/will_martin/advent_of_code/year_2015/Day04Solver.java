@@ -3,7 +3,6 @@ package com.will_martin.advent_of_code.year_2015;
 import com.will_martin.advent_of_code.Solver;
 import lombok.SneakyThrows;
 import lombok.val;
-import org.apache.commons.codec.digest.DigestUtils;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -13,8 +12,7 @@ public class Day04Solver implements Solver {
     @SneakyThrows
     @Override
     public Integer solvePart1(String data) {
-        int numZeroes = 5;
-        return findHashWithNumZeroes(data, numZeroes);
+        return findHashWithNumZeroes(data, 5);
     }
 
     private int findHashWithNumZeroes(String data, int numZeroes) throws NoSuchAlgorithmException {

@@ -31,3 +31,12 @@ java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -
 ```sh
 java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 3 -p 2 -f ../data/2015/day_03.txt
 ```
+
+## Day 4
+```sh
+java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 4 -p 1 -f ../data/2015/day_04.txt
+```
+
+```sh
+java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 4 -p 2 -f ../data/2015/day_04.txt
+```

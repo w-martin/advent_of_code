@@ -7,36 +7,45 @@ mvn package
 Then
 ## Day 1
 ```sh
-java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 1 -p 1 -f ../data/2015/day_01.txt
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 1 --part 1 --data-root ../data
 ```
 
 ```sh
-java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 1 -p 2 -f ../data/2015/day_01.txt
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 1 --part 2 --data-root ../data
 ```
 
 ## Day 2
 ```sh
-java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 2 -p 1 -f ../data/2015/day_02.txt
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 2 --part 1 --data-root ../data
 ```
 
 ```sh
-java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 2 -p 2 -f ../data/2015/day_02.txt
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 2 --part 2 --data-root ../data
 ```
 
 ## Day 3
 ```sh
-java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 3 -p 1 -f ../data/2015/day_03.txt
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 3 --part 1 --data-root ../data
 ```
 
 ```sh
-java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 3 -p 2 -f ../data/2015/day_03.txt
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 3 --part 2 --data-root ../data
 ```
 
 ## Day 4
 ```sh
-java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 4 -p 1 -f ../data/2015/day_04.txt
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 4 --part 1 --data-root ../data
 ```
 
 ```sh
-java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar -y 2015 -d 4 -p 2 -f ../data/2015/day_04.txt
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 4 --part 2 --data-root ../data
+```
+
+## Day 5
+```sh
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 5 --part 1 --data-root ../data
+```
+
+```sh
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 5 --part 2 --data-root ../data
 ```

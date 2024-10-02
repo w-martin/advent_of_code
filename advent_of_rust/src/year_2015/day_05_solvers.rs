@@ -58,9 +58,9 @@ mod test_solver {
     fn test_part_1() {
         assert_eq!(1, solve_part_1("ugknbfddgicrmopn".parse().unwrap()));
         assert_eq!(1, solve_part_1("aaa".parse().unwrap()));
-        assert_eq!(0, solve_part_1("".parse().unwrap()));
-        assert_eq!(0, solve_part_1("".parse().unwrap()));
-        assert_eq!(0, solve_part_1("".parse().unwrap()));
+        assert_eq!(0, solve_part_1("jchzalrnumimnmhp".parse().unwrap()));
+        assert_eq!(0, solve_part_1("haegwjzuvuyypxyu".parse().unwrap()));
+        assert_eq!(0, solve_part_1("dvszwmarrgswjxmb".parse().unwrap()));
     }
 
     #[test]

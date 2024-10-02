@@ -17,8 +17,8 @@ public class Day06Solver implements Solver {
         data = data.trim();
         int height = 1_000;
         int width = 1_000;
-        var array = new int[height * width];
-        Arrays.fill(array, 0);
+        int size = width * height;
+        var array = makeZeroedArray(size);
         data.lines().forEach(line -> {
             var matcher = pattern.matcher(line);
             if (matcher.find()) {
@@ -44,7 +44,7 @@ public class Day06Solver implements Solver {
                     case "toggle" -> {
                         for (int x = x0; x <= x1; x++) {
                             for (int y = y0; y <= y1; y++) {
-                                array[y * width + x] = 1 - array[y * width + x];
+                                array[y * width + x] = (byte) ((byte) 1 - array[y * width + x]);
                             }
                         }
                     }
@@ -53,7 +53,7 @@ public class Day06Solver implements Solver {
                 }
             }
         });
-        return IntStream.of(array).parallel().sum();
+        return sumArray(array, size);
     }
 
     @Override
@@ -61,8 +61,8 @@ public class Day06Solver implements Solver {
         data = data.trim();
         int height = 1_000;
         int width = 1_000;
-        var array = new int[height * width];
-        Arrays.fill(array, 0);
+        int totalSize = width * height;
+        var array = makeZeroedArray(totalSize);
         data.lines().forEach(line -> {
             var matcher = pattern.matcher(line);
             if (matcher.find()) {
@@ -81,7 +81,7 @@ public class Day06Solver implements Solver {
                     case "turn off" -> {
                         for (int x = x0; x <= x1; x++) {
                             for (int y = y0; y <= y1; y++) {
-                                array[y * width + x] = Math.max(0, array[y * width + x] - 1);
+                                array[y * width + x] = (byte) (Math.max(array[y * width + x] - 1, 0));
                             }
                         }
                     }
@@ -97,6 +97,22 @@ public class Day06Solver implements Solver {
                 }
             }
         });
-        return IntStream.of(array).parallel().sum();
+        return sumArray(array, totalSize);
+    }
+
+    private static int sumArray(byte[] array, int size) {
+        var sum = 0;
+        for (int i = 0; i < size; i++) {
+            sum += array[i];
+        }
+        return sum;
+    }
+
+    private static byte[] makeZeroedArray(int totalSize) {
+        var array = new byte[totalSize];
+        for (int i = 0; i < totalSize; i++) {
+            array[i] = 0;
+        }
+        return array;
     }
 }

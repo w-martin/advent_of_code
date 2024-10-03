@@ -51,3 +51,13 @@ time ./target/release/cli --year 2015 --day 5 --part 1 --data-root ../data/
 ```sh
 time ./target/release/cli --year 2015 --day 5 --part 2 --data-root ../data/
 ```
+
+## Day 6
+
+```sh
+time ./target/release/cli --year 2015 --day 6 --part 1 --data-root ../data/
+```
+
+```sh
+time ./target/release/cli --year 2015 --day 6 --part 2 --data-root ../data/
+```

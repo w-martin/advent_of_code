@@ -3,9 +3,7 @@ package com.will_martin.advent_of_code.year_2015;
 import com.will_martin.advent_of_code.Solver;
 import lombok.val;
 
-import java.util.Arrays;
 import java.util.regex.Pattern;
-import java.util.stream.IntStream;
 
 public class Day06Solver implements Solver {
 

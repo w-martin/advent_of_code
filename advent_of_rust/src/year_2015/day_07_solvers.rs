@@ -174,7 +174,8 @@ NOT y -> i"#.parse().unwrap();
         let input: String = r#"c OR b -> a
 46066 -> c
 9 -> b"#.parse().unwrap();
-        assert_eq!(0, solve_part_2(format!("c\n{}", input)));
-        assert_eq!(46065, solve_part_2(format!("a\n{}", input)));
+        assert_eq!(46066, solve_part_2(format!("c\n{}", input)));
+        assert_eq!(46067, solve_part_2(format!("a\n{}", input)));
+        assert_eq!(46065, solve_part_2(format!("b\n{}", input)));
     }
 }

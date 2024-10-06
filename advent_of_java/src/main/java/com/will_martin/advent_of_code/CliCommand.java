@@ -4,7 +4,6 @@ import lombok.SneakyThrows;
 import lombok.val;
 import picocli.CommandLine;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
@@ -76,6 +75,13 @@ public class CliCommand implements Callable<Integer> {
                     }
                     case 6 -> {
                         var solver = new com.will_martin.advent_of_code.year_2015.Day06Solver();
+                        switch (part) {
+                            case 1 -> System.out.println(solver.solvePart1(data));
+                            case 2 -> System.out.println(solver.solvePart2(data));
+                        }
+                    }
+                    case 7 -> {
+                        var solver = new com.will_martin.advent_of_code.year_2015.Day07Solver();
                         switch (part) {
                             case 1 -> System.out.println(solver.solvePart1(data));
                             case 2 -> System.out.println(solver.solvePart2(data));

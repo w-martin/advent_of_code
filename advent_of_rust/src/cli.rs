@@ -10,6 +10,7 @@ pub mod year_2015 {
     pub mod day_05_solvers;
     pub mod day_06_solvers;
     pub mod day_07_solvers;
+    pub mod day_08_solvers;
 }
 pub mod year_2023 {
     pub mod day_01_solvers;
@@ -35,7 +36,7 @@ struct Cli {
     #[clap(long, value_parser=parse_part)]
     part: u8,
     #[clap(long)]
-    data_root: PathBuf
+    data_root: PathBuf,
 }
 
 fn main() {
@@ -89,14 +90,20 @@ fn main() {
         (2015, 7, 2) => {
             result = year_2015::day_07_solvers::solve_part_2(data);
         }
+        (2015, 8, 1) => {
+            result = year_2015::day_08_solvers::solve_part_1(data);
+        }
+        (2015, 8, 2) => {
+            result = year_2015::day_08_solvers::solve_part_2(data);
+        }
         (2023, 1, 1) => {
             result = year_2023::day_01_solvers::solve_part_1(data);
         }
         (2023, 1, 2) => {
             result = year_2023::day_01_solvers::solve_part_2(data);
         }
-        _ => {
-            println!("Day {} Part {} not implemented", args.day, args.part);
+        (_, _, _) => {
+            println!("Year {} Day {} Part {} not implemented", args.year, args.day, args.part);
         }
     }
     println!("{}", result);

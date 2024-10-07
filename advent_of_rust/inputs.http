@@ -1,9 +1,0 @@
-
-### day 1 example
-@day = 01
-POST localhost:8080/day/{{day}}
-Content-Type: text/plain
-
-< ../data/day_01_example.txt
-
-###

@@ -11,6 +11,7 @@ pub mod year_2015 {
     pub mod day_06_solvers;
     pub mod day_07_solvers;
     pub mod day_08_solvers;
+    pub mod day_09_solvers;
 }
 pub mod year_2023 {
     pub mod day_01_solvers;
@@ -95,6 +96,12 @@ fn main() {
         }
         (2015, 8, 2) => {
             result = year_2015::day_08_solvers::solve_part_2(data);
+        }
+        (2015, 9, 1) => {
+            result = year_2015::day_09_solvers::solve_part_1(data);
+        }
+        (2015, 9, 2) => {
+            result = year_2015::day_09_solvers::solve_part_2(data);
         }
         (2023, 1, 1) => {
             result = year_2023::day_01_solvers::solve_part_1(data);

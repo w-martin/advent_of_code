@@ -2,11 +2,13 @@ package solvers_2015
 
 import "strings"
 
-func SolvePart1(data string) int {
+type Solver01 struct{}
+
+func (Solver01) SolvePart1(data string) int {
 	return strings.Count(data, "(") - strings.Count(data, ")")
 }
 
-func SolvePart2(data string) int {
+func (Solver01) SolvePart2(data string) int {
 	position := 0
 	for i, c := range data {
 		switch c {

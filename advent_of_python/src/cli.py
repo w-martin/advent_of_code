@@ -1,8 +1,9 @@
 from pathlib import Path
 from typing import Annotated
 
-import typer
+import typer.core
 
+typer.core.rich = None
 from transformer_factory import TransformerFactory
 
 
@@ -17,6 +18,7 @@ def main(year: Annotated[int, typer.Argument(min=2015, max=2024)],
             print(transformer.transform_1(data))
         case 2:
             print(transformer.transform_2(data))
+
 
 if __name__ == "__main__":
     typer.run(main)

@@ -5,10 +5,10 @@ from typing import Any
 
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
     def _compute_line_1(self, line: str) -> int:
         num_matches = self._get_num_matches(line)
@@ -31,14 +31,14 @@ class TransformerImpl(Transformer):
         num_matches = len(winning_numbers.intersection(your_numbers))
         return num_matches
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._compute_line_1)
             .sum()
         )
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         num_match_list = (
             seq(data.splitlines(keepends=False))
             .map(self._get_num_matches)
@@ -68,6 +68,6 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    print(sut.transform_2(data))
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    print(sut.solve_part_2(data))

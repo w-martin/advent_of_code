@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from transformer import Transformer
+from solver import Solver
 
 
 def is_counter_clockwise(a, b, c):
@@ -19,8 +19,8 @@ def lines_intersect(a, b, c, d):
     return result
 
 
-class TransformerImpl(Transformer):
-    def transform_1(self, data: str, min_bound: int, max_bound: int) -> Any:
+class SolverImpl(Solver):
+    def solver_part_1(self, data: str, min_bound: int, max_bound: int) -> Any:
         point_velocities = []
         for line in data.splitlines(False):
             line = line.strip()
@@ -67,7 +67,7 @@ class TransformerImpl(Transformer):
             return None
 
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         return 0
 
 
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data, 200000000000000, 400000000000000))
-    answer_2 = sut.transform_2(data)
+    sut = SolverImpl()
+    print(sut.solver_part_1(data, 200000000000000, 400000000000000))
+    answer_2 = sut.solve_part_2(data)
     print(answer_2)

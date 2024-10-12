@@ -3,7 +3,7 @@ from pathlib import Path
 from unittest import TestCase
 
 import numpy
-from solvers_2023.transformer_18 import TransformerImpl
+from solvers_2023.transformer_18 import SolverImpl
 
 numpy.set_printoptions(threshold=sys.maxsize)
 
@@ -12,7 +12,7 @@ class TestTransformer18(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.sut = TransformerImpl()
+        cls.sut = SolverImpl()
 
         file_path = Path(__file__)
         data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
@@ -33,10 +33,10 @@ L 2 (#015232)
 U 2 (#7a21e3)"""
 
     def test_transform_1(self):
-        self.assertEqual(62, self.sut.transform_1(self.data))
+        self.assertEqual(62, self.sut.solver_part_1(self.data))
 
     def test_transform_1_real(self):
-        self.assertGreater(46340, self.sut.transform_1(self.real_data))
+        self.assertGreater(46340, self.sut.solver_part_1(self.real_data))
 
     def test_transform_2(self):
-        self.assertEqual(952408144115, self.sut.transform_2(self.data))
+        self.assertEqual(952408144115, self.sut.solve_part_2(self.data))

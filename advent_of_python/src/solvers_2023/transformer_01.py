@@ -3,10 +3,10 @@ from typing import Any
 
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
     def _compute_line_1(self, line: str):
         result = ""
         for c in line:
@@ -26,14 +26,14 @@ class TransformerImpl(Transformer):
         result += str(digit_dict[seq(digit_dict).filter(line.__contains__).max_by(line.rindex)])
         return int(result)
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._compute_line_1)
             .sum()
         )
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._compute_line_2)
@@ -45,6 +45,6 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[3].joinpath("data", f"day_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    print(sut.transform_2(data))
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    print(sut.solve_part_2(data))

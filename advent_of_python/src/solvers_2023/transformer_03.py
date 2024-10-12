@@ -5,7 +5,7 @@ import numpy as np
 from pathlib import Path
 from typing import Any
 
-from transformer import Transformer
+from solver import Solver
 from functional import seq
 
 
@@ -22,9 +22,9 @@ class Symbol:
     line_number: int
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         numbers = []
         lines = []
         splitlines = data.splitlines(keepends=False)
@@ -93,7 +93,7 @@ class TransformerImpl(Transformer):
         if index < width:
             adjacency_matrix[line_number, index] = True
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         splitlines = data.splitlines(keepends=False)
         height = len(splitlines)
         width = len(splitlines[0])
@@ -173,6 +173,6 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    print(sut.transform_2(data))
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    print(sut.solve_part_2(data))

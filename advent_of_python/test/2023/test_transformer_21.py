@@ -3,7 +3,7 @@ from pathlib import Path
 from unittest import TestCase, skip
 
 import numpy
-from solvers_2023.transformer_21 import TransformerImpl
+from solvers_2023.transformer_21 import SolverImpl
 
 numpy.set_printoptions(threshold=sys.maxsize)
 
@@ -12,7 +12,7 @@ class TestTransformer21(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.sut = TransformerImpl()
+        cls.sut = SolverImpl()
 
         file_path = Path(__file__)
         data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
@@ -30,17 +30,17 @@ class TestTransformer21(TestCase):
 ..........."""
 
     def test_transform_1_1(self):
-        self.assertEqual(16, self.sut.transform_1(self.data, 6))
+        self.assertEqual(16, self.sut.solver_part_1(self.data, 6))
 
     @skip("slow")
     def test_transform_2(self):
-        self.assertEqual(16, self.sut.transform_2(self.data, 6))
-        self.assertEqual(50, self.sut.transform_2(self.data, 10))
-        self.assertEqual(1594, self.sut.transform_2(self.data, 50))
+        self.assertEqual(16, self.sut.solve_part_2(self.data, 6))
+        self.assertEqual(50, self.sut.solve_part_2(self.data, 10))
+        self.assertEqual(1594, self.sut.solve_part_2(self.data, 50))
 
         for i in range(262):
             with open(f"test_transformer_21.csv", "a") as f:
-                text = f"{i},{self.sut.transform_2(self.data, i)}\n"
+                text = f"{i},{self.sut.solve_part_2(self.data, i)}\n"
                 f.write(text)
 
         # self.assertEqual(6536, self.sut.transform_2(self.data, 100))

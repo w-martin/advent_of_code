@@ -3,7 +3,7 @@ from unittest import TestCase
 
 import numpy
 
-from solvers_2023.transformer_05 import TransformerImpl
+from solvers_2023.transformer_05 import SolverImpl
 
 numpy.set_printoptions(threshold=sys.maxsize)
 
@@ -45,10 +45,10 @@ temperature-to-humidity map:
 humidity-to-location map:
 60 56 37
 56 93 4"""
-        cls.sut = TransformerImpl()
+        cls.sut = SolverImpl()
 
     def test_transform_1(self):
-        self.assertEqual(35, self.sut.transform_1(self.data))
+        self.assertEqual(35, self.sut.solver_part_1(self.data))
 
     def test_transform_2(self):
-        self.assertEqual(46, self.sut.transform_2(self.data))
+        self.assertEqual(46, self.sut.solve_part_2(self.data))

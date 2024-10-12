@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any, Protocol
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 
 class Module(Protocol):
@@ -149,9 +149,9 @@ class Broadcaster(Module):
         return self._destinations
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
 
         module_map: dict[str, Module] = {}
         for line in data.splitlines(False):
@@ -215,7 +215,7 @@ class TransformerImpl(Transformer):
             if pulse_history[-i:] == pulse_history[-2 * i:-i]:
                 return pulse_history[-i:]
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
 
         module_map: dict[str, Module] = {}
         for line in data.splitlines(False):
@@ -285,7 +285,7 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    answer_2 = sut.transform_2(data)
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    answer_2 = sut.solve_part_2(data)
     print(answer_2)

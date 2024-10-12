@@ -6,7 +6,7 @@ from typing import Any
 
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 
 @dataclass
@@ -16,7 +16,7 @@ class Galaxy:
     number: int
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
     def __init__(self):
         self._expansion_factor = 2
@@ -41,10 +41,10 @@ class TransformerImpl(Transformer):
                 .count(lambda x: x < galaxy.x)
             ) * (self._expansion_factor - 1)
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         ...
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         y = 0
         number = 1
         galaxies: list[Galaxy] = []
@@ -72,7 +72,7 @@ class TransformerImpl(Transformer):
         )
         return result
 
-    def with_expansion_factor(self, expansion_factor: int) -> "TransformerImpl":
+    def with_expansion_factor(self, expansion_factor: int) -> "SolverImpl":
         self._expansion_factor = expansion_factor
         return self
 
@@ -86,7 +86,7 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    answer_2 = sut.with_expansion_factor(1_000_000).transform_1(data)
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    answer_2 = sut.with_expansion_factor(1_000_000).solver_part_1(data)
     print(answer_2)

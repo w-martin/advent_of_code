@@ -4,7 +4,7 @@ from unittest import TestCase
 
 import numpy
 
-from solvers_2023.transformer_10 import TransformerImpl
+from solvers_2023.transformer_10 import SolverImpl
 
 numpy.set_printoptions(threshold=sys.maxsize)
 
@@ -13,31 +13,31 @@ class TestTransformer10(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.sut = TransformerImpl()
+        cls.sut = SolverImpl()
 
         file_path = Path(__file__)
         data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
         cls.real_data = data_path.read_text()
 
     def test_transform_1(self):
-        self.assertEqual(4, self.sut.transform_1(""".....
+        self.assertEqual(4, self.sut.solver_part_1(""".....
 .S-7.
 .|.|.
 .L-J.
 ....."""))
-        self.assertEqual(8, self.sut.transform_1("""..F7.
+        self.assertEqual(8, self.sut.solver_part_1("""..F7.
 .FJ|.
 SJ.L7
 |F--J
 LJ..."""))
 
     def test_transform_2(self):
-        self.assertEqual(1, self.sut.transform_2(""".....
+        self.assertEqual(1, self.sut.solve_part_2(""".....
 .S-7.
 .|.|.
 .L-J.
 ....."""))
-        self.assertEqual(4, self.sut.transform_2("""...........
+        self.assertEqual(4, self.sut.solve_part_2("""...........
 .S-------7.
 .|F-----7|.
 .||.....||.
@@ -46,7 +46,7 @@ LJ..."""))
 .|..|.|..|.
 .L--J.L--J.
 ..........."""))
-        self.assertEqual(4, self.sut.transform_2("""...........
+        self.assertEqual(4, self.sut.solve_part_2("""...........
 .S------7.
 .|F----7|.
 .||....||.
@@ -55,7 +55,7 @@ LJ..."""))
 .|..||..|.
 .L--JL--J.
 .........."""))
-        self.assertEqual(8, self.sut.transform_2(""".F----7F7F7F7F-7....
+        self.assertEqual(8, self.sut.solve_part_2(""".F----7F7F7F7F-7....
 .|F--7||||||||FJ....
 .||.FJ||||||||L7....
 FJL7L7LJLJ||LJ.L-7..
@@ -65,7 +65,7 @@ L--J.L7...LJS7F-7L7.
 .....|FJLJ|FJ|F7|.LJ
 ....FJL-7.||.||||...
 ....L---J.LJ.LJLJ..."""))
-        self.assertEqual(10, self.sut.transform_2("""FF7FSF7F7F7F7F7F---7
+        self.assertEqual(10, self.sut.solve_part_2("""FF7FSF7F7F7F7F7F---7
 L|LJ||||||||||||F--J
 FL-7LJLJ||||||LJL-77
 F--JF--7||LJLJ7F7FJ-

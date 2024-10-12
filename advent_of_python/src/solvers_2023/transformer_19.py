@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 
 class Condition(Enum):
@@ -24,12 +24,12 @@ class Rule:
     positive_result: str
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
     def __init__(self):
         self._workflows: dict[str, list[Rule | str]] | None = None
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
 
         workflows: dict[str, list[Rule | str]] = {}
         parts_list: list[dict[str, int]] = []
@@ -90,7 +90,7 @@ class TransformerImpl(Transformer):
             else:
                 return self._apply_workflow(rule, parts)
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         workflows: dict[str, list[Rule | str]] = {}
         for line in data.splitlines(False):
             line = line.strip()
@@ -187,7 +187,7 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    answer_2 = sut.transform_2(data)
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    answer_2 = sut.solve_part_2(data)
     print(answer_2)

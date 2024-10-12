@@ -2,11 +2,11 @@ import re
 from pathlib import Path
 from typing import Any
 
-from transformer import Transformer
+from solver import Solver
 from functional import seq
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
     def _compute_line_1(self, line: str):
         limits = {
             "red": 12,
@@ -44,7 +44,7 @@ class TransformerImpl(Transformer):
 
         return seq(limits.values()).product()
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._compute_line_1)
@@ -52,7 +52,7 @@ class TransformerImpl(Transformer):
         )
 
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._compute_line_2)
@@ -64,5 +64,5 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_2(data))
+    sut = SolverImpl()
+    print(sut.solve_part_2(data))

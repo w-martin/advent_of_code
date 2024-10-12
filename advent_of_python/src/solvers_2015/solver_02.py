@@ -3,12 +3,12 @@ from typing import Any
 
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._transform_line_1)
@@ -24,7 +24,7 @@ class TransformerImpl(Transformer):
         )
         return 2 * sum(sides) + min(sides)
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._transform_line_2)

@@ -9,7 +9,7 @@ from typing import Any
 
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 
 @dataclass
@@ -63,7 +63,7 @@ class PipeFactory:
                 return Pipe(start=True)
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
     def _fix_start(self, grid: list[list[Pipe]]) -> None:
         start: tuple[int, int] | None = None
@@ -95,7 +95,7 @@ class TransformerImpl(Transformer):
                     starting_pipe.east = True
         return start
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         grid: list[list[Pipe]] = []
         pipe_factory = PipeFactory()
         for line in data.splitlines(keepends=False):
@@ -227,7 +227,7 @@ class TransformerImpl(Transformer):
     def _reprint(self, grid: list[list[Pipe]]) -> str:
         return "\n".join(self._reprint_line(line) for line in grid)
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         grid: list[list[Pipe]] = []
         pipe_factory = PipeFactory()
         for line in data.splitlines(keepends=False):
@@ -373,7 +373,7 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    answer_2 = sut.transform_2(data)
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    answer_2 = sut.solve_part_2(data)
     print(answer_2)

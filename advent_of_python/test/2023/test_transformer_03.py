@@ -4,7 +4,7 @@ from unittest import TestCase
 
 import numpy
 
-from solvers_2023.transformer_03 import TransformerImpl
+from solvers_2023.transformer_03 import SolverImpl
 
 numpy.set_printoptions(threshold=sys.maxsize)
 
@@ -22,15 +22,15 @@ class TestTransformer03(TestCase):
 ......755.
 ...$.*....
 .664.598.."""
-        sut = TransformerImpl()
-        self.assertEqual(4361, sut.transform_1(data))
+        sut = SolverImpl()
+        self.assertEqual(4361, sut.solver_part_1(data))
 
     def test_transformer_1_with_real(self):
         file_path = Path(__file__)
         data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
         data = data_path.read_text()
-        sut = TransformerImpl()
-        result = sut.transform_1(data)
+        sut = SolverImpl()
+        result = sut.solver_part_1(data)
         self.assertLess(result, 528686)
         self.assertGreater(result, 327640)
         self.assertNotEqual(521740, result)
@@ -46,5 +46,5 @@ class TestTransformer03(TestCase):
 ......755.
 ...$.*....
 .664.598.."""
-        sut = TransformerImpl()
-        self.assertEqual(467835, sut.transform_2(data))
+        sut = SolverImpl()
+        self.assertEqual(467835, sut.solve_part_2(data))

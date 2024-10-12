@@ -10,7 +10,7 @@ from typing import Any
 import numpy as np
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 
 @dataclass
@@ -36,9 +36,9 @@ class Shape:
         )
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         shapes = self._parse_shapes(data)
         supports, supported_by = self._fall(shapes)
         shapes_that_cannot_be_dissolved = seq(supported_by.values()).filter(lambda x: len(x) == 1).flatten().to_set()
@@ -114,7 +114,7 @@ class TransformerImpl(Transformer):
                 supported_by[shape.id].add(supported_by_id)
         return supports, supported_by
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         shapes = self._parse_shapes(data)
         supports, supported_by = self._fall(shapes)
         result = (
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    answer_2 = sut.transform_2(data)
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    answer_2 = sut.solve_part_2(data)
     print(answer_2)

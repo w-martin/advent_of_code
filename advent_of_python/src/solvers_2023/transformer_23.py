@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 LEFT = (0, -1)
 RIGHT = (0, 1)
@@ -17,7 +17,7 @@ UP = (-1, 0)
 DOWN = (1, 0)
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
     def _solve_1(self, arr):
         location = (0, np.where(arr[0] == ".")[0][0])
@@ -93,12 +93,12 @@ class TransformerImpl(Transformer):
                 trajectories = (LEFT, UP, RIGHT, DOWN)
         return trajectories
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         arr = self._parse_input(data)
         result = self._solve_1(arr)
         return result
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         for direction in ("^", "v", "<", ">"):
             data = data.replace(direction, ".")
         arr = self._parse_input(data)
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    answer_2 = sut.transform_2(data)
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    answer_2 = sut.solve_part_2(data)
     print(answer_2)

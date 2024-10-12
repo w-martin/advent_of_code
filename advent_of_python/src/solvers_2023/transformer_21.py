@@ -4,15 +4,15 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
-from transformer import Transformer
+from solver import Solver
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
     def __init__(self):
         self._arr = None
 
-    def transform_1(self, data: str, num_steps: int) -> Any:
+    def solver_part_1(self, data: str, num_steps: int) -> Any:
 
         lines = []
         for line in data.splitlines(False):
@@ -76,7 +76,7 @@ class TransformerImpl(Transformer):
                 result.append(new_position)
         return result
 
-    def transform_2(self, data: str, num_steps: int) -> Any:
+    def solve_part_2(self, data: str, num_steps: int) -> Any:
         lines = []
         for line in data.splitlines(False):
             line = line.strip()
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data, 64))
-    answer_2 = sut.transform_2(data, 26501365)
+    sut = SolverImpl()
+    print(sut.solver_part_1(data, 64))
+    answer_2 = sut.solve_part_2(data, 26501365)
     print(answer_2)

@@ -7,7 +7,7 @@ from typing import Any
 
 from functional import seq
 
-from transformer import Transformer
+from solver import Solver
 
 
 @dataclass
@@ -30,9 +30,9 @@ class Range:
     span: int
 
 
-class TransformerImpl(Transformer):
+class SolverImpl(Solver):
 
-    def transform_1(self, data: str) -> Any:
+    def solver_part_1(self, data: str) -> Any:
         seeds = []
         maps = []
         for line in data.splitlines(keepends=False):
@@ -100,7 +100,7 @@ class TransformerImpl(Transformer):
                 options |= (self._get_locations(maps, m.dest, new_value, new_span))
         return options
 
-    def transform_2(self, data: str) -> Any:
+    def solve_part_2(self, data: str) -> Any:
         seeds = []
         maps = []
         for line in data.splitlines(keepends=False):
@@ -171,8 +171,8 @@ if __name__ == "__main__":
     file_path = Path(__file__)
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
-    sut = TransformerImpl()
-    print(sut.transform_1(data))
-    answer_2 = sut.transform_2(data)
+    sut = SolverImpl()
+    print(sut.solver_part_1(data))
+    answer_2 = sut.solve_part_2(data)
     assert answer_2 < 216635734
     print(answer_2)

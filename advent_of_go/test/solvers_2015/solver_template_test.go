@@ -1,4 +1,4 @@
-package test
+package solvers_2015
 
 import (
 	"github.com/stretchr/testify/suite"

@@ -1,5 +1,11 @@
 # Commands for 2015
 
+## Pre compile
+
+```sh
+poetry run python3 -m compileall src/
+```
+
 ## Day 1
 
 ```sh

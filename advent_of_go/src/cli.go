@@ -41,6 +41,14 @@ var cmd = &cobra.Command{
 				case 2:
 					fmt.Println(solver.SolvePart2(data))
 				}
+			case 9:
+				solver := solvers_2015.Solver09{}
+				switch Part {
+				case 1:
+					fmt.Println(solver.SolvePart1(data))
+				case 2:
+					fmt.Println(solver.SolvePart2(data))
+				}
 			}
 		}
 
@@ -53,15 +61,15 @@ func init() {
 	cmd.Flags().Uint8P("part", "p", uint8(1), "part of the puzzle")
 	cmd.Flags().String("dataPath", "<data_path>", "path to the data files")
 
-	cmd.MarkFlagRequired("year")
-	cmd.MarkFlagRequired("day")
-	cmd.MarkFlagRequired("part")
-	cmd.MarkFlagRequired("dataPath")
+	_ = cmd.MarkFlagRequired("year")
+	_ = cmd.MarkFlagRequired("day")
+	_ = cmd.MarkFlagRequired("part")
+	_ = cmd.MarkFlagRequired("dataPath")
 }
 
 func main() {
 	if err := cmd.Execute(); err != nil {
-		fmt.Fprintln(os.Stderr, err)
+		_, _ = fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 }

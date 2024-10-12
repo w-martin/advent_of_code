@@ -41,6 +41,14 @@ var cmd = &cobra.Command{
 				case 2:
 					fmt.Println(solver.SolvePart2(data))
 				}
+			case 3:
+				solver := solvers_2015.Solver03{}
+				switch Part {
+				case 1:
+					fmt.Println(solver.SolvePart1(data))
+				case 2:
+					fmt.Println(solver.SolvePart2(data))
+				}
 			case 9:
 				solver := solvers_2015.Solver09{}
 				switch Part {

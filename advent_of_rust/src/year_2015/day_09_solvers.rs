@@ -1,67 +1,125 @@
-use std::collections::{HashMap, HashSet};
 use lazy_static::lazy_static;
+use priority_queue::PriorityQueue;
 use regex::Regex;
+use std::collections::{HashMap, HashSet};
+use std::hash::{Hash, Hasher};
 
 lazy_static! {
-    static ref route_regex: Regex = Regex::new(r"^(\w+) to (\w+) = (\d+)$").unwrap();
-}
-pub fn solve_part_1(data: String) -> i64 {
-    let mut nodes: HashSet<&str> = HashSet::new();
-    let mut adjacency_sets: HashMap<&str, HashSet<&str>> = HashMap::new();
-    for (_, [source, destination, _ ]) in route_regex.captures_iter(data.as_str()).map(|c| c.extract()) {
-        nodes.insert(source);
-        nodes.insert(destination);
-        if !adjacency_sets.contains_key(source) {
-            adjacency_sets.insert(source, HashSet::new());
-        }
-        if !adjacency_sets.contains_key(destination) {
-            adjacency_sets.insert(destination, HashSet::new());
-        }
-        adjacency_sets.get_mut(source).unwrap().insert(destination);
-        adjacency_sets.get_mut(destination).unwrap().insert(source);
-    };
-    let mut node_to_key: HashMap<&str, usize> = HashMap::new();
-    let mut key_to_node: HashMap<usize, &str> = HashMap::new();
-    for (key, node) in nodes.iter().enumerate() {
-        node_to_key.insert(node, key);
-        key_to_node.insert(key, node);
-    }
-    let mut graph = vec![vec![u16::MAX; nodes.len()]; nodes.len()];
-    for (_, [source, destination, distance_str ]) in route_regex.captures_iter(data.as_str()).map(|c| c.extract()) {
-        let distance = distance_str.parse::<u16>().unwrap();
-        let source_key = *node_to_key.get(source).unwrap();
-        let distination_key = *node_to_key.get(destination).unwrap();
-        graph[source_key][distination_key] = distance;
-        graph[distination_key][source_key] = distance;
-    }
-    let mut shortest_path: HashSet<&str> = HashSet::new();
-    let mut u = *nodes.iter().next().unwrap();
-    loop {
-        shortest_path.insert(u);
-        if shortest_path.len() == nodes.len() {
-            break
-        }
-    }
-    0
+    static ref route_regex: Regex = Regex::new(r"(\w+) to (\w+) = (\d+)").unwrap();
 }
 
-pub fn solve_part_2(_: String) -> i64 {
-    0
+struct Neighbour {
+    node: String,
+    distance: i64,
+}
+
+struct VisitOption {
+    visited: HashSet<String>,
+    head: String,
+}
+
+impl Hash for VisitOption {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        self.visited.iter().for_each(|v| v.hash(state));
+        self.head.hash(state);
+    }
+}
+
+impl PartialEq for VisitOption {
+    fn eq(&self, other: &Self) -> bool {
+        self.visited == other.visited && self.head == other.head
+    }
+}
+
+impl Eq for VisitOption {}
+
+pub fn solve_part_1(data: String) -> i64 {
+    let graph = parse_graph(data);
+    let mut q = PriorityQueue::new();
+    for key in graph.keys().into_iter() {
+        let mut visited = HashSet::new();
+        let head = key.to_string();
+        visited.insert(key.to_string());
+        q.push(VisitOption { visited, head }, 0);
+    }
+    let mut total = i64::MAX;
+    while q.len() > 0 {
+        let (option, distance) = q.pop().unwrap();
+        if option.visited.len() == graph.len() && distance < total {
+            total = distance
+        }
+        for neighbour in graph.get(option.head.as_str()).unwrap().into_iter() {
+            if !option.visited.contains(neighbour.node.as_str()) {
+                let mut new_visited = option.visited.clone();
+                new_visited.insert(neighbour.node.clone());
+                let new_option = VisitOption {visited: new_visited, head: neighbour.node.clone() };
+                q.push(new_option, neighbour.distance + distance);
+            }
+        }
+    }
+    total
+}
+
+fn parse_graph(data: String) -> HashMap<String, Vec<Neighbour>> {
+    let mut graph: HashMap<String, Vec<Neighbour>> = HashMap::new();
+    for (_, [source, destination, distance_str ]) in route_regex.captures_iter(data.as_str()).map(|c| c.extract()) {
+        if !graph.contains_key(source) {
+            graph.insert(source.to_string(), Vec::new());
+        }
+        if !graph.contains_key(destination) {
+            graph.insert(destination.to_string(), Vec::new());
+        }
+        let distance = distance_str.parse::<i64>().unwrap();
+        graph.get_mut(source).unwrap().push(Neighbour { node: destination.to_string(), distance });
+        graph.get_mut(destination).unwrap().push(Neighbour { node: source.to_string(), distance });
+    };
+    graph
+}
+
+pub fn solve_part_2(data: String) -> i64 {
+    let graph = parse_graph(data);
+    let mut q = PriorityQueue::new();
+    for key in graph.keys().into_iter() {
+        let mut visited = HashSet::new();
+        let head = key.to_string();
+        visited.insert(key.to_string());
+        q.push(VisitOption { visited, head }, 0);
+    }
+    let mut total = i64::MIN;
+    while q.len() > 0 {
+        let (option, distance) = q.pop().unwrap();
+        if option.visited.len() == graph.len() && distance > total {
+            total = distance
+        }
+        for neighbour in graph.get(option.head.as_str()).unwrap().into_iter() {
+            if !option.visited.contains(neighbour.node.as_str()) {
+                let mut new_visited = option.visited.clone();
+                new_visited.insert(neighbour.node.clone());
+                let new_option = VisitOption {visited: new_visited, head: neighbour.node.clone() };
+                q.push(new_option, distance + neighbour.distance);
+            }
+        }
+    }
+    total
 }
 
 #[cfg(test)]
 mod test_solver {
     use super::*;
 
+    lazy_static! {
+        static ref DATA: String = r#"London to Dublin = 464
+London to Belfast = 518
+Dublin to Belfast = 141"#.parse().unwrap();
+    }
+
     #[test]
     fn test_part_1() {
-        assert_eq!(605, solve_part_1(r#"London to Dublin = 464
-London to Belfast = 518
-Dublin to Belfast = 141"#.parse().unwrap()));
+        assert_eq!(605, solve_part_1(DATA.clone()));
     }
 
     #[test]
     fn test_part_2() {
-        assert_eq!(0, solve_part_2("".parse().unwrap()));
+        assert_eq!(982, solve_part_2(DATA.clone()));
     }
 }

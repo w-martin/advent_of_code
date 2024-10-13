@@ -12,6 +12,8 @@ rust-crypto = "0.2.36"
 regex = "1.11.0"
 lazy_static = "1.5.0"
 cached = "0.53.1"
+env_logger = "0.11.5"
+priority-queue = "2.1.1"
 
 [[bin]]
 name = "cli"

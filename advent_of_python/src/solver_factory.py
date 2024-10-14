@@ -9,7 +9,7 @@ class SolverFactory:
 
     @lru_cache(maxsize=25 * 10)
     def new(self, year: int, day: int) -> Solver:
-        module_name = f"solvers_{year}.transformer_{day:02d}"
+        module_name = f"solvers_{year}.solver_{day:02d}"
         if (Path(__file__).parent / (module_name.replace(".", "/") + ".py")).exists():
             return importlib.import_module(module_name).SolverImpl()
         else:

@@ -43,6 +43,18 @@ command="poetry run python -OO -m cli 2015 3 2"
 bash -c "$command" && hyperfine -N -r 5 "$command"
 ```
 
+## Day 4
+
+```sh
+command="poetry run python -OO -m cli 2015 4 1"
+bash -c "$command" && hyperfine -N -r 2 "$command"
+```
+
+```sh
+command="poetry run python -OO -m cli 2015 4 2"
+bash -c "$command" && hyperfine -N -r 2 "$command"
+```
+
 ## Day 9
 
 ```sh

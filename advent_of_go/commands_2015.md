@@ -60,6 +60,15 @@ time ./cli -y 2015 -d 6 -p 1 --dataPath ../data
 time ./cli -y 2015 -d 6 -p 2 --dataPath ../data
 ```
 
+## Day 7
+```sh
+time ./cli -y 2015 -d 7 -p 1 --dataPath ../data
+```
+
+```sh
+time ./cli -y 2015 -d 7 -p 2 --dataPath ../data
+```  
+
 ## Day 9
 ```sh
 time ./cli -y 2015 -d 9 -p 1 --dataPath ../data

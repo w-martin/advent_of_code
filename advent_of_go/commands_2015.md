@@ -67,7 +67,16 @@ time ./cli -y 2015 -d 7 -p 1 --dataPath ../data
 
 ```sh
 time ./cli -y 2015 -d 7 -p 2 --dataPath ../data
-```  
+```
+
+## Day 8
+```sh
+time ./cli -y 2015 -d 8 -p 1 --dataPath ../data
+```
+
+```sh
+time ./cli -y 2015 -d 8 -p 2 --dataPath ../data
+```
 
 ## Day 9
 ```sh
@@ -76,4 +85,22 @@ time ./cli -y 2015 -d 9 -p 1 --dataPath ../data
 
 ```sh
 time ./cli -y 2015 -d 9 -p 2 --dataPath ../data
+```
+
+## Day 10
+```sh
+time ./cli -y 2015 -d 10 -p 1 --dataPath ../data
+```
+
+```sh
+time ./cli -y 2015 -d 10 -p 2 --dataPath ../data
+```
+
+## Day 11
+```sh
+time ./cli -y 2015 -d 11 -p 1 --dataPath ../data
+```
+
+```sh
+time ./cli -y 2015 -d 11 -p 2 --dataPath ../data
 ```

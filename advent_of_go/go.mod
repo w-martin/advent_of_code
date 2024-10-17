@@ -5,6 +5,7 @@ go 1.23
 toolchain go1.23.2
 
 require (
+	github.com/ernestosuarez/itertools v0.0.0-20190516153236-40a02c159e7b
 	github.com/hashicorp/go-set/v3 v3.0.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/spf13/cobra v1.8.1

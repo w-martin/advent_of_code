@@ -28,7 +28,7 @@ class SolverImpl(Solver):
             return game_number
         else:
             return 0
-        
+
     def _compute_line_2(self, line: str):
         limits = {
             "red": 0,

@@ -16,7 +16,7 @@ public class Day07Solver implements Solver {
     private static final Pattern reffRegex = Pattern.compile("^(\\w+)$");
     private final Cache<String, U16> cache;
     private final HashMap<String, String> circuit;
-    
+
     public Day07Solver(){
         circuit = new HashMap<>();
         cache = Caffeine.newBuilder().build();
@@ -30,7 +30,7 @@ public class Day07Solver implements Solver {
         }
         return result;
     }
-    
+
     private U16 resolveInstruction1(String instruction) {
         var match = initialiserRegex.matcher(instruction);
         if (match.matches()) {

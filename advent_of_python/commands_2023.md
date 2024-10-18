@@ -3,6 +3,5 @@
 ## Day 1
 
 ```sh
-PYTHONPATH=src time poetry run python -m cli 2023 1 1 
+PYTHONPATH=src time poetry run python -m cli 2023 1 1
 ```
-

@@ -2,7 +2,6 @@ package solvers_2015
 
 import (
 	"container/heap"
-	"fmt"
 	"strings"
 )
 
@@ -98,46 +97,52 @@ func (s *Solver19) parseReplacements(data string) {
 
 func (s *Solver19) SolvePart2(data string) int {
 	s.parseReplacements(data)
-	return s.findMinimumReplacement(0, "e")
+	return s.findMinimumReplacement("e")
 }
 
-func (s *Solver19) findMinimumReplacement(numReplacements int, currentString string) int {
+func (s *Solver19) findMinimumReplacement(currentString string) int {
 
 	q := make(Solver19PriorityQueue, 0)
 	q = append(q, &Solver19Option{
-		molecule:        currentString,
+		molecule:        s.molecule,
 		numReplacements: 0,
 		index:           0,
 	})
-	visited := make(map[string]bool)
-	visited[currentString] = true
+	visited := make(map[string]int)
+	visited[s.molecule] = 0
 
 	for len(q) > 0 {
 		option := heap.Pop(&q).(*Solver19Option)
-		//fmt.Println("Evaluating option", option.molecule, "with", option.numReplacements, "replacements")
-		if option.molecule == (s.molecule) {
+		if option.molecule == (currentString) {
 			return option.numReplacements
 		}
-		fmt.Println(len(s.molecule), len(option.molecule))
+		newNumReplacements := option.numReplacements + 1
 		for key, values := range s.replacements {
-			keyLen := len(key)
-			index := strings.Index(option.molecule, key)
-			for 0 <= index && index < len(option.molecule) {
-				nextIndexStart := index + keyLen
-				for _, value := range values {
-					newMolecule := option.molecule[:index] + value + option.molecule[nextIndexStart:]
-					if _, ok := visited[newMolecule]; !ok && len(option.molecule) <= len(s.molecule) {
+			for _, value := range values {
+				keyLen := len(value)
+				index := strings.Index(option.molecule, value)
+				for 0 <= index && index < len(option.molecule) {
+					nextIndexStart := index + keyLen
+					newMolecule := option.molecule[:index] + key
+					if nextIndexStart < len(option.molecule) {
+						newMolecule += option.molecule[nextIndexStart:]
+					}
+					if oldNumReplacements, ok := visited[newMolecule]; !ok || newNumReplacements < oldNumReplacements {
 						heap.Push(&q, &Solver19Option{
 							molecule:        newMolecule,
-							numReplacements: option.numReplacements + 1,
+							numReplacements: newNumReplacements,
 							index:           0,
 						})
-						visited[newMolecule] = true
+						visited[newMolecule] = newNumReplacements
 					}
-				}
-				index = strings.Index(option.molecule[nextIndexStart:], key)
-				if index != -1 {
-					index += nextIndexStart
+					if nextIndexStart < len(option.molecule) {
+						index = strings.Index(option.molecule[nextIndexStart:], key)
+						if index != -1 {
+							index += nextIndexStart
+						}
+					} else {
+						index = -1
+					}
 				}
 			}
 		}

@@ -176,3 +176,12 @@ time ./cli -y 2015 -d 19 -p 1 --dataPath ../data
 ```sh
 time ./cli -y 2015 -d 19 -p 2 --dataPath ../data
 ```
+
+## Day 20
+```sh
+time ./cli -y 2015 -d 20 -p 1 --dataPath ../data
+```
+
+```sh
+time ./cli -y 2015 -d 20 -p 2 --dataPath ../data
+```

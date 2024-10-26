@@ -17,7 +17,7 @@ public class Day02Solver implements Solver {
     }
 
     @Override
-    public Integer solvePart1(String data) {
+    public String solvePart1(String data) {
         return data.lines().map(line -> {
             var box = parseBox(line);
             if (box.isEmpty()) {
@@ -29,7 +29,7 @@ public class Day02Solver implements Solver {
                     box.get().getL() * box.get().getW(),
             };
             return 2 * IntStream.of(sides).sum() + IntStream.of(sides).min().orElse(0);
-        }).reduce(0, Integer::sum);
+        }).reduce(0, Integer::sum).toString();
     }
 
     private Optional<Box> parseBox(String line) {
@@ -49,7 +49,7 @@ public class Day02Solver implements Solver {
     }
 
     @Override
-    public Integer solvePart2(String data) {
+    public String solvePart2(String data) {
         return data.lines().map(line -> {
             var box = parseBox(line);
             if (box.isEmpty()) {
@@ -63,6 +63,6 @@ public class Day02Solver implements Solver {
             val smallestPerimeter = IntStream.of(edges).sorted().limit(1).sum() * 2;
             val volume = box.get().getH() * box.get().getW() * box.get().getL();
             return smallestPerimeter + volume;
-        }).reduce(0, Integer::sum);
+        }).reduce(0, Integer::sum).toString();
     }
 }

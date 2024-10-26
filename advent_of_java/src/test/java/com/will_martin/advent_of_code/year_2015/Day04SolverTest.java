@@ -16,8 +16,8 @@ class Day04SolverTest {
 
     @Test
     void solvePart1() {
-        assertEquals(609043, sut.solvePart1("abcdef"));
-        assertEquals(1048970, sut.solvePart1("pqrstuv"));
+        assertEquals("609043", sut.solvePart1("abcdef"));
+        assertEquals("1048970", sut.solvePart1("pqrstuv"));
     }
 
 }

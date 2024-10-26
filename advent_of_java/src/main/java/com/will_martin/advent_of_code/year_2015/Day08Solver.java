@@ -2,7 +2,6 @@ package com.will_martin.advent_of_code.year_2015;
 
 import com.will_martin.advent_of_code.Solver;
 
-import java.text.MessageFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,7 +10,7 @@ public class Day08Solver implements Solver {
     private static final Pattern specialCharacterRegex2 = Pattern.compile("(\"|\\\\)");
 
     @Override
-    public Integer solvePart1(String data) {
+    public String solvePart1(String data) {
         return data.trim().lines().map(line -> {
             int totalLength = line.length();
             line = line.substring(1, line.length() - 1);
@@ -30,13 +29,15 @@ public class Day08Solver implements Solver {
 
             int numSpecialCharacters = output.length();
             return totalLength - numSpecialCharacters;
-        }).reduce(0, Integer::sum);
+        }).reduce(0, Integer::sum).toString();
     }
+
     private static String convert(String token) {
         return "\\" + token;
     }
+
     @Override
-    public Integer solvePart2(String data) {
+    public String solvePart2(String data) {
         return data.trim().lines().map(line -> {
             int originalLength = line.length();
 
@@ -56,6 +57,6 @@ public class Day08Solver implements Solver {
             output.append("\"");
             int newLength = output.length();
             return newLength - originalLength;
-        }).reduce(0, Integer::sum);
+        }).reduce(0, Integer::sum).toString();
     }
 }

@@ -22,7 +22,7 @@ class Day08SolverTest {
 "aaa\\"aaa"
 "\\x27"
                 """;
-        assertEquals(12, sut.solvePart1(data));
+        assertEquals("12", sut.solvePart1(data));
     }
 
     @Test
@@ -33,7 +33,7 @@ class Day08SolverTest {
 "aaa\\"aaa"
 "\\x27"
                 """;
-        assertEquals(19, sut.solvePart2(data));
+        assertEquals("19", sut.solvePart2(data));
     }
 
 }

@@ -26,14 +26,14 @@ y RSHIFT 2 -> g
 NOT x -> h
 NOT y -> i
                 """;
-        assertEquals(72, sut.solvePart1("d\n" + data));
-        assertEquals(507, sut.solvePart1("e\n" + data));
-        assertEquals(492, sut.solvePart1("f\n" + data));
-        assertEquals(114, sut.solvePart1("g\n" + data));
-        assertEquals(65412, sut.solvePart1("h\n" + data));
-        assertEquals(65079, sut.solvePart1("i\n" + data));
-        assertEquals(123, sut.solvePart1("x\n" + data));
-        assertEquals(456, sut.solvePart1("y\n" + data));
+        assertEquals("72", sut.solvePart1("d\n" + data));
+        assertEquals("507", sut.solvePart1("e\n" + data));
+        assertEquals("492", sut.solvePart1("f\n" + data));
+        assertEquals("114", sut.solvePart1("g\n" + data));
+        assertEquals("65412", sut.solvePart1("h\n" + data));
+        assertEquals("65079", sut.solvePart1("i\n" + data));
+        assertEquals("123", sut.solvePart1("x\n" + data));
+        assertEquals("456", sut.solvePart1("y\n" + data));
     }
 
     @Test
@@ -43,9 +43,9 @@ c OR b -> a
 46066 -> c
 9 -> b
 """;
-        assertEquals(46066, sut.solvePart2("c\n" + data));
-        assertEquals(46067, sut.solvePart2("a\n" + data));
-        assertEquals(46065, sut.solvePart2("b\n" + data));
+        assertEquals("46066", sut.solvePart2("c\n" + data));
+        assertEquals("46067", sut.solvePart2("a\n" + data));
+        assertEquals("46065", sut.solvePart2("b\n" + data));
     }
 
 }

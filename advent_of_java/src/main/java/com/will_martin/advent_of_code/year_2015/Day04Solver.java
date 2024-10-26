@@ -11,8 +11,8 @@ import java.security.NoSuchAlgorithmException;
 public class Day04Solver implements Solver {
     @SneakyThrows
     @Override
-    public Integer solvePart1(String data) {
-        return findHashWithNumZeroes(data, 5);
+    public String solvePart1(String data) {
+        return String.valueOf(findHashWithNumZeroes(data, 5));
     }
 
     private int findHashWithNumZeroes(String data, int numZeroes) throws NoSuchAlgorithmException {
@@ -42,7 +42,7 @@ public class Day04Solver implements Solver {
 
     @SneakyThrows
     @Override
-    public Integer solvePart2(String data) {
-        return findHashWithNumZeroes(data, 6);
+    public String solvePart2(String data) {
+        return String.valueOf(findHashWithNumZeroes(data, 6));
     }
 }

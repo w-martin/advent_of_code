@@ -21,7 +21,7 @@ London to Dublin = 464
 London to Belfast = 518
 Dublin to Belfast = 141
                 """;
-        assertEquals(605, sut.solvePart1(data));
+        assertEquals("605", sut.solvePart1(data));
     }
 
     @Test
@@ -31,7 +31,7 @@ London to Dublin = 464
 London to Belfast = 518
 Dublin to Belfast = 141
                 """;
-        assertEquals(982, sut.solvePart2(data));
+        assertEquals("982", sut.solvePart2(data));
     }
 
 }

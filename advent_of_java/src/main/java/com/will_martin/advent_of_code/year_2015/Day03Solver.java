@@ -8,7 +8,7 @@ public class Day03Solver implements Solver {
 
 
     @Override
-    public Integer solvePart1(String data) {
+    public String solvePart1(String data) {
         var visitedHouses = new java.util.HashSet<Pair<Integer, Integer>>();
         var x = 0;
         var y = 0;
@@ -30,11 +30,11 @@ public class Day03Solver implements Solver {
             }
             visitedHouses.add(new ImmutablePair<>(x, y));
         }
-        return visitedHouses.size();
+        return String.valueOf(visitedHouses.size());
     }
 
     @Override
-    public Integer solvePart2(String data) {
+    public String solvePart2(String data) {
         var visitedHouses = new java.util.HashSet<Pair<Integer, Integer>>();
         var x1 = 0;
         var y1 = 0;
@@ -78,6 +78,6 @@ public class Day03Solver implements Solver {
             }
             alternate = !alternate;
         }
-        return visitedHouses.size();
+        return String.valueOf(visitedHouses.size());
     }
 }

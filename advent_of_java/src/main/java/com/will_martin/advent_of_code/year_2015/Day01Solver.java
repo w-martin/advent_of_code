@@ -4,16 +4,17 @@ import com.will_martin.advent_of_code.Solver;
 
 public class Day01Solver implements Solver {
     @Override
-    public Integer solvePart1(String data) {
-        return data.chars().map((c) -> switch (c) {
+    public String solvePart1(String data) {
+        int sum = data.chars().map((c) -> switch (c) {
             case '(' -> 1;
             case ')' -> -1;
             default -> 0;
         }).sum();
+        return String.valueOf(sum);
     }
 
     @Override
-    public Integer solvePart2(String data) {
+    public String solvePart2(String data) {
         var floor = 0;
         var counter = 1;
         for (char c : data.toCharArray()) {
@@ -27,6 +28,6 @@ public class Day01Solver implements Solver {
             }
             counter++;
         }
-        return counter;
+        return String.valueOf(counter);
     }
 }

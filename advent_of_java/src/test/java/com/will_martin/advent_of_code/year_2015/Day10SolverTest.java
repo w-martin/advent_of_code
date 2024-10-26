@@ -1,6 +1,5 @@
 package com.will_martin.advent_of_code.year_2015;
 
-import com.will_martin.advent_of_code.Solver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

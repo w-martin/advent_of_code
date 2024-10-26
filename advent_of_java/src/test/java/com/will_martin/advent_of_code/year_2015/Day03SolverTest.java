@@ -16,15 +16,15 @@ class Day03SolverTest {
 
     @Test
     void solvePart1() {
-        assertEquals(2, sut.solvePart1(">"));
-        assertEquals(4, sut.solvePart1("^>v<"));
-        assertEquals(2, sut.solvePart1("^v^v^v^v^v"));
+        assertEquals("2", sut.solvePart1(">"));
+        assertEquals("4", sut.solvePart1("^>v<"));
+        assertEquals("2", sut.solvePart1("^v^v^v^v^v"));
     }
 
     @Test
     void solvePart2() {
-        assertEquals(3, sut.solvePart2("^v"));
-        assertEquals(3, sut.solvePart2("^>v<"));
-        assertEquals(11, sut.solvePart2("^v^v^v^v^v"));
+        assertEquals("3", sut.solvePart2("^v"));
+        assertEquals("3", sut.solvePart2("^>v<"));
+        assertEquals("11", sut.solvePart2("^v^v^v^v^v"));
     }
 }

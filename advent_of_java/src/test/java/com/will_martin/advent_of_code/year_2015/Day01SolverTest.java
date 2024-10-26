@@ -15,20 +15,20 @@ class Day01SolverTest {
 
     @Test
     void solvePart1() {
-        assertEquals(0, sut.solvePart1("(())"));
-        assertEquals(0, sut.solvePart1("()()"));
-        assertEquals(3, sut.solvePart1("((("));
-        assertEquals(3, sut.solvePart1("(()(()("));
-        assertEquals(3, sut.solvePart1("))((((("));
-        assertEquals(-1, sut.solvePart1("())"));
-        assertEquals(-1, sut.solvePart1("))("));
-        assertEquals(-3, sut.solvePart1(")))"));
-        assertEquals(-3, sut.solvePart1(")())())"));
+        assertEquals("0", sut.solvePart1("(())"));
+        assertEquals("0", sut.solvePart1("()()"));
+        assertEquals("3", sut.solvePart1("((("));
+        assertEquals("3", sut.solvePart1("(()(()("));
+        assertEquals("3", sut.solvePart1("))((((("));
+        assertEquals("-1", sut.solvePart1("())"));
+        assertEquals("-1", sut.solvePart1("))("));
+        assertEquals("-3", sut.solvePart1(")))"));
+        assertEquals("-3", sut.solvePart1(")())())"));
     }
 
     @Test
     void solvePart2() {
-        assertEquals(1, sut.solvePart2(")"));
-        assertEquals(5, sut.solvePart2("()())"));
+        assertEquals("1", sut.solvePart2(")"));
+        assertEquals("5", sut.solvePart2("()())"));
     }
 }

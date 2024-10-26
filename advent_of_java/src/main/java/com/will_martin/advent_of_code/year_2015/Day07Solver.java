@@ -116,7 +116,7 @@ public class Day07Solver implements Solver {
     }
 
     @Override
-    public Integer solvePart1(String data) {
+    public String solvePart1(String data) {
         final String[] target = {null};
         data.trim().lines().forEach(line -> {
             if (line.isEmpty()) {
@@ -131,11 +131,11 @@ public class Day07Solver implements Solver {
                 circuit.put(transformation.group(2), transformation.group(1));
             }
         });
-        return resolveCachedInstruction1(target[0]).toInteger();
+        return String.valueOf(resolveCachedInstruction1(target[0]).toInteger());
     }
 
     @Override
-    public Integer solvePart2(String data) {
+    public String solvePart2(String data) {
         final String[] target = {null};
         data.trim().lines().forEach(line -> {
             if (line.isEmpty()) {
@@ -150,6 +150,6 @@ public class Day07Solver implements Solver {
                 circuit.put(transformation.group(2), transformation.group(1));
             }
         });
-        return resolveCachedInstruction2(target[0]).toInteger();
+        return String.valueOf(resolveCachedInstruction2(target[0]).toInteger());
     }
 }

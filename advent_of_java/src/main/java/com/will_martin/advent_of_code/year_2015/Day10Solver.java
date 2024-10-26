@@ -4,12 +4,12 @@ import com.will_martin.advent_of_code.Solver;
 
 public class Day10Solver implements Solver {
     @Override
-    public Integer solvePart1(String data) {
+    public String solvePart1(String data) {
         data = data.trim();
         for (int i = 0; i < 40; i++) {
             data = lookAndSay(data);
         }
-        return data.length();
+        return String.valueOf(data.length());
     }
 
     public String lookAndSay(final String data) {
@@ -37,11 +37,11 @@ public class Day10Solver implements Solver {
     }
 
     @Override
-    public Integer solvePart2(String data) {
+    public String solvePart2(String data) {
         data = data.trim();
         for (int i = 0; i < 50; i++) {
             data = lookAndSay(data);
         }
-        return data.length();
+        return String.valueOf(data.length());
     }
 }

@@ -11,7 +11,7 @@ public class Day06Solver implements Solver {
 
 
     @Override
-    public Integer solvePart1(String data) {
+    public String solvePart1(String data) {
         data = data.trim();
         int height = 1_000;
         int width = 1_000;
@@ -51,11 +51,11 @@ public class Day06Solver implements Solver {
                 }
             }
         });
-        return sumArray(array, size);
+        return String.valueOf(sumArray(array, size));
     }
 
     @Override
-    public Integer solvePart2(String data) {
+    public String solvePart2(String data) {
         data = data.trim();
         int height = 1_000;
         int width = 1_000;
@@ -95,7 +95,7 @@ public class Day06Solver implements Solver {
                 }
             }
         });
-        return sumArray(array, totalSize);
+        return String.valueOf(sumArray(array, totalSize));
     }
 
     private static int sumArray(byte[] array, int size) {

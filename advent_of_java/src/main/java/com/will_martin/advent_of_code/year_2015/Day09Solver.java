@@ -20,7 +20,7 @@ public class Day09Solver implements Solver {
     }
 
     @Override
-    public Integer solvePart1(String data) {
+    public String solvePart1(String data) {
         var G = parseGraph(data);
         var Q = new PriorityQueue<Day09Option>();
         for (String node : G.keySet()) {
@@ -29,7 +29,7 @@ public class Day09Solver implements Solver {
         while (!Q.isEmpty()) {
             val current = Q.poll();
             if (current.visited.size() == G.size()) {
-                return current.distance;
+                return String.valueOf(current.distance);
             }
             G.get(current.node).forEach((neighbor, distance) -> {
                 if (!current.visited.contains(neighbor)) {
@@ -39,7 +39,7 @@ public class Day09Solver implements Solver {
                 }
             });
         }
-        return Integer.MAX_VALUE;
+        return String.valueOf(Integer.MAX_VALUE);
     }
 
     private static HashMap<String, HashMap<String, Integer>> parseGraph(String data) {
@@ -60,7 +60,7 @@ public class Day09Solver implements Solver {
     }
 
     @Override
-    public Integer solvePart2(String data) {
+    public String solvePart2(String data) {
         var G = parseGraph(data);
         var Q = new ArrayList<Day09Option>();
         for (String node : G.keySet()) {
@@ -81,6 +81,6 @@ public class Day09Solver implements Solver {
                 }
             });
         }
-        return maxDistance;
+        return String.valueOf(maxDistance);
     }
 }

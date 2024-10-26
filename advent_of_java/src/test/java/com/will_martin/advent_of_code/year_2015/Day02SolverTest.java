@@ -15,14 +15,14 @@ class Day02SolverTest {
 
     @Test
     void solvePart1() {
-        assertEquals(58, sut.solvePart1("2x3x4"));
-        assertEquals(43, sut.solvePart1("1x1x10"));
-        assertEquals(3632, sut.solvePart1("22x29x19"));
+        assertEquals("58", sut.solvePart1("2x3x4"));
+        assertEquals("43", sut.solvePart1("1x1x10"));
+        assertEquals("3632", sut.solvePart1("22x29x19"));
     }
 
     @Test
     void solvePart2() {
-        assertEquals(34, sut.solvePart2("2x3x4"));
-        assertEquals(14, sut.solvePart2("1x1x10"));
+        assertEquals("34", sut.solvePart2("2x3x4"));
+        assertEquals("14", sut.solvePart2("1x1x10"));
     }
 }

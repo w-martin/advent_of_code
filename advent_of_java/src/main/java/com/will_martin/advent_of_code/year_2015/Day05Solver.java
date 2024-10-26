@@ -14,7 +14,7 @@ public class Day05Solver implements Solver {
     private static final String[] badStrings = new String[]{"ab", "cd", "pq", "xy"};
 
     @Override
-    public Integer solvePart1(String data) {
+    public String solvePart1(String data) {
         data = data.trim();
         return data.lines().map(line -> {
             val hasBadString = Arrays.stream(badStrings).anyMatch(line::contains);
@@ -32,11 +32,11 @@ public class Day05Solver implements Solver {
             }
             val hasMoreThanThreeVowels = sumVowels >= 3;
             return (!hasBadString && (hasMoreThanThreeVowels && hasCharacterMoreThanOnce)) ? 1 : 0;
-        }).reduce(0, Integer::sum);
+        }).reduce(0, Integer::sum).toString();
     }
 
     @Override
-    public Integer solvePart2(String data) {
+    public String solvePart2(String data) {
         data = data.trim();
         return data.lines().map(line -> {
             var pairSet = new HashSet<Pair<Character, Character>>();
@@ -65,6 +65,6 @@ public class Day05Solver implements Solver {
                 lastCharacter = c;
             }
             return (twoPair && oneBetween) ? 1 : 0;
-        }).reduce(0, Integer::sum);
+        }).reduce(0, Integer::sum).toString();
     }
 }

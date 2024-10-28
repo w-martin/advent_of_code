@@ -122,6 +122,13 @@ public class CliCommand implements Callable<Integer> {
                             case 2 -> System.out.println(solver.solvePart2(data));
                         }
                     }
+                    case 13 -> {
+                        var solver = new com.will_martin.advent_of_code.year_2015.Day13Solver();
+                        switch (part) {
+                            case 1 -> System.out.println(solver.solvePart1(data));
+                            case 2 -> System.out.println(solver.solvePart2(data));
+                        }
+                    }
                 }
             }
         }

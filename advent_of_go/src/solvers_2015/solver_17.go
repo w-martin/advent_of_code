@@ -63,7 +63,7 @@ func (s Solver17) FindMinimumStorageCombinations(liters int, data string) int {
 			}
 		}
 		if total > 0 {
-			return total
+			return i
 		}
 	}
 	return total

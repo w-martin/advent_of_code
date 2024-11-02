@@ -157,3 +157,12 @@ time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --ye
 ```sh
 time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 17 --part 2 --data-root ../data
 ```
+
+## Day 18
+```sh
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 18 --part 1 --data-root ../data
+```
+
+```sh
+time java -jar target/advent-of-code-1.0-SNAPSHOT-jar-with-dependencies.jar --year 2015 --day 18 --part 2 --data-root ../data
+```

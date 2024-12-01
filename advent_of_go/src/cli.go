@@ -5,6 +5,7 @@ import (
 	"github.com/spf13/cobra"
 	"os"
 	"will-martin.com/advent_of_go/src/solvers_2015"
+	"will-martin.com/advent_of_go/src/solvers_2024"
 )
 
 var cmd = &cobra.Command{
@@ -16,7 +17,7 @@ var cmd = &cobra.Command{
 		Part, _ := cmd.Flags().GetUint8("part")
 		DataPath, _ := cmd.Flags().GetString("dataPath")
 		fmt.Printf("Running year %d, day %d, part %d with data path %s\n", Year, Day, Part, DataPath)
-		rawData, err := os.ReadFile(fmt.Sprintf("%s/2015/day_%02d.txt", DataPath, Day))
+		rawData, err := os.ReadFile(fmt.Sprintf("%s/%d/day_%02d.txt", DataPath, Year, Day))
 		if err != nil {
 			panic(err)
 		}
@@ -198,6 +199,18 @@ var cmd = &cobra.Command{
 				switch Part {
 				case 1:
 					fmt.Println(solver.SolvePart1(data))
+				case 2:
+					fmt.Println(solver.SolvePart2(data))
+				}
+			}
+		case 2024:
+			switch Day {
+			case 1:
+				solver := solvers_2024.Solver01{}
+				switch Part {
+				case 1:
+					fmt.Println(solver.SolvePart1(data))
+
 				case 2:
 					fmt.Println(solver.SolvePart2(data))
 				}

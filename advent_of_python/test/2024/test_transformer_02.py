@@ -21,7 +21,7 @@ class TestTransformer01(TestCase):
 
     def test_transform_1(self):
         # act assert
-        self.assertEqual(2, self.sut.solver_part_1(self.data))
+        self.assertEqual(2, self.sut.solve_part_1(self.data))
 
     def test_transform_2(self):
         # act assert

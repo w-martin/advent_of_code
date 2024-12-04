@@ -13,7 +13,7 @@ class SolverImpl(Solver):
     def __init__(self):
         self._graph: dict[str, list[tuple[str, int]]] = defaultdict(list)
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         (
             seq(data.strip().splitlines(keepends=False))
             .map(str.split)

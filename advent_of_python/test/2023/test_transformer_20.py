@@ -19,14 +19,14 @@ class TestTransformer20(TestCase):
         cls.real_data = data_path.read_text()
 
     def test_transform_1_1(self):
-        self.assertEqual(32000000, self.sut.solver_part_1("""broadcaster -> a, b, c
+        self.assertEqual(32000000, self.sut.solve_part_1("""broadcaster -> a, b, c
 %a -> b
 %b -> c
 %c -> inv
 &inv -> a"""))
 
     def test_transform_1_2(self):
-        self.assertEqual(11687500, self.sut.solver_part_1("""broadcaster -> a
+        self.assertEqual(11687500, self.sut.solve_part_1("""broadcaster -> a
 %a -> inv, con
 &inv -> b
 %b -> con

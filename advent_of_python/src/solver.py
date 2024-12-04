@@ -5,7 +5,7 @@ from typing import Protocol
 class Solver(Protocol):
 
     @abstractmethod
-    def solver_part_1(self, data: str) -> int:
+    def solve_part_1(self, data: str) -> int:
         ...
 
     @abstractmethod

@@ -27,10 +27,10 @@ class TestTransformer22(TestCase):
 """
 
     def test_transform_1(self):
-        self.assertEqual(5, self.sut.solver_part_1(self.data))
+        self.assertEqual(5, self.sut.solve_part_1(self.data))
 
     def test_transform_1_real(self):
-        actual = self.sut.solver_part_1(self.real_data)
+        actual = self.sut.solve_part_1(self.real_data)
         self.assertNotEqual(410, actual)
         self.assertNotEqual(669, actual)
         self.assertNotEqual(670, actual)

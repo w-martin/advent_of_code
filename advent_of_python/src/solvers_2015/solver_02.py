@@ -8,7 +8,7 @@ from solver import Solver
 
 class SolverImpl(Solver):
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._transform_line_1)

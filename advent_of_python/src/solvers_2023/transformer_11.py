@@ -44,7 +44,7 @@ class SolverImpl(Solver):
     def solve_part_2(self, data: str) -> Any:
         ...
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         y = 0
         number = 1
         galaxies: list[Galaxy] = []
@@ -87,6 +87,6 @@ if __name__ == "__main__":
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
     sut = SolverImpl()
-    print(sut.solver_part_1(data))
-    answer_2 = sut.with_expansion_factor(1_000_000).solver_part_1(data)
+    print(sut.solve_part_1(data))
+    answer_2 = sut.with_expansion_factor(1_000_000).solve_part_1(data)
     print(answer_2)

@@ -31,7 +31,7 @@ class SolverImpl(Solver):
         num_matches = len(winning_numbers.intersection(your_numbers))
         return num_matches
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._compute_line_1)
@@ -69,5 +69,5 @@ if __name__ == "__main__":
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
     sut = SolverImpl()
-    print(sut.solver_part_1(data))
+    print(sut.solve_part_1(data))
     print(sut.solve_part_2(data))

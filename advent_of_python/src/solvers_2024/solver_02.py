@@ -3,7 +3,7 @@ from solver import Solver
 
 class SolverImpl(Solver):
 
-    def solver_part_1(self, data: str) -> int:
+    def solve_part_1(self, data: str) -> int:
         safe = 0
         for line in data.strip().splitlines():
             parts = line.split()

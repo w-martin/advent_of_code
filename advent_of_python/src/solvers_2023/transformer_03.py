@@ -24,7 +24,7 @@ class Symbol:
 
 class SolverImpl(Solver):
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         numbers = []
         lines = []
         splitlines = data.splitlines(keepends=False)
@@ -174,5 +174,5 @@ if __name__ == "__main__":
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
     sut = SolverImpl()
-    print(sut.solver_part_1(data))
+    print(sut.solve_part_1(data))
     print(sut.solve_part_2(data))

@@ -59,7 +59,7 @@ class SolverImpl(Solver):
     def _rotate_clockwise(self, arr: np.ndarray) -> None:
         arr[:] = arr[::-1, :].T
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         arr: np.ndarray = np.vstack([seq(data.splitlines(keepends=False)).map(list).to_list()])
         arr = ((arr == 'O').astype(int) * 1) + ((arr == '#').astype(int) * 2)
 
@@ -99,5 +99,5 @@ if __name__ == "__main__":
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
     sut = SolverImpl()
-    print(sut.solver_part_1(data))
+    print(sut.solve_part_1(data))
     print(sut.solve_part_2(data))

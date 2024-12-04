@@ -30,7 +30,7 @@ class TestTransformer21(TestCase):
 ..........."""
 
     def test_transform_1_1(self):
-        self.assertEqual(16, self.sut.solver_part_1(self.data, 6))
+        self.assertEqual(16, self.sut.solve_part_1(self.data, 6))
 
     @skip("slow")
     def test_transform_2(self):

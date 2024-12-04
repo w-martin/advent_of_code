@@ -6,7 +6,7 @@ from solver import Solver
 
 class SolverImpl(Solver):
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         return self._find_hash_suffix(data.strip(), 5)
 
     def _find_hash_suffix(self, data, num_zeroes):

@@ -33,10 +33,10 @@ L 2 (#015232)
 U 2 (#7a21e3)"""
 
     def test_transform_1(self):
-        self.assertEqual(62, self.sut.solver_part_1(self.data))
+        self.assertEqual(62, self.sut.solve_part_1(self.data))
 
     def test_transform_1_real(self):
-        self.assertGreater(46340, self.sut.solver_part_1(self.real_data))
+        self.assertGreater(46340, self.sut.solve_part_1(self.real_data))
 
     def test_transform_2(self):
         self.assertEqual(952408144115, self.sut.solve_part_2(self.data))

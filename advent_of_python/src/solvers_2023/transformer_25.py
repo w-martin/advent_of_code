@@ -11,7 +11,7 @@ from solver import Solver
 
 class SolverImpl(Solver):
 
-    def solver_part_1(self, data: str, ignore_pairs: set[tuple[str, str]]=None) -> Any:
+    def solve_part_1(self, data: str, ignore_pairs: set[tuple[str, str]]=None) -> Any:
         edges: list[tuple[str, str]] = set()
         for line in data.splitlines(False):
             line = line.strip()
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
     sut = SolverImpl()
-    print(sut.solver_part_1(data, ignore_pairs={
+    print(sut.solve_part_1(data, ignore_pairs={
         ('dnz', 'kgd'),
         ('dnz', 'bxr'),
         ('dnz', 'jld'),

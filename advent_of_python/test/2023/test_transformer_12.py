@@ -20,7 +20,7 @@ class TestTransformer11(TestCase):
         cls.real_data = data_path.read_text()
 
     def test_transform_1(self):
-        self.assertEqual(21, self.sut.solver_part_1("""???.### 1,1,3
+        self.assertEqual(21, self.sut.solve_part_1("""???.### 1,1,3
 .??..??...?##. 1,1,3
 ?#?#?#?#?#?#?#? 1,3,1,6
 ????.#...#... 4,1,1

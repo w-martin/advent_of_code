@@ -8,7 +8,7 @@ from solver import Solver
 class SolverImpl(Solver):
     _MAX_SIZE = 1_000
 
-    def solver_part_1(self, data: str) -> int:
+    def solve_part_1(self, data: str) -> int:
         left, right = self._parse_input(data)
         left = sorted(left)
         right = sorted(right)

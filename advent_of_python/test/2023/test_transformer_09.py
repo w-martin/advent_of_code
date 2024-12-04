@@ -23,10 +23,10 @@ class TestTransformer09(TestCase):
         cls.real_data = data_path.read_text()
 
     def test_transform_1(self):
-        self.assertEqual(114, self.sut.solver_part_1(self.data))
+        self.assertEqual(114, self.sut.solve_part_1(self.data))
 
     def test_transform_1_real(self):
-        result = self.sut.solver_part_1(self.real_data)
+        result = self.sut.solve_part_1(self.real_data)
         self.assertGreater(1748059900, result)
         self.assertGreater(1745741424, result)
 

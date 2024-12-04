@@ -42,10 +42,10 @@ class TestTransformer23(TestCase):
 #####################.#"""
 
     def test_transform_1(self):
-        self.assertEqual(94, self.sut.solver_part_1(self.data))
+        self.assertEqual(94, self.sut.solve_part_1(self.data))
 
     def test_transform_1_real(self):
-        self.assertEqual(2170, self.sut.solver_part_1(self.real_data))
+        self.assertEqual(2170, self.sut.solve_part_1(self.real_data))
 
     def test_transform_2(self):
         self.assertEqual(154, self.sut.solve_part_2(self.data))

@@ -15,7 +15,7 @@ def main(year: Annotated[int, typer.Argument(min=2015, max=2024)],
     data = (Path(__file__).parents[2] / "data" / str(year) / f"day_{day:02d}.txt").read_text()
     match part:
         case 1:
-            print(solver.solver_part_1(data))
+            print(solver.solve_part_1(data))
         case 2:
             print(solver.solve_part_2(data))
 

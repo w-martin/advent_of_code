@@ -29,7 +29,7 @@ class SolverImpl(Solver):
     def __init__(self):
         self._workflows: dict[str, list[Rule | str]] | None = None
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
 
         workflows: dict[str, list[Rule | str]] = {}
         parts_list: list[dict[str, int]] = []
@@ -188,6 +188,6 @@ if __name__ == "__main__":
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
     sut = SolverImpl()
-    print(sut.solver_part_1(data))
+    print(sut.solve_part_1(data))
     answer_2 = sut.solve_part_2(data)
     print(answer_2)

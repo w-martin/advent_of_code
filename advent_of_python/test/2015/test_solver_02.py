@@ -10,8 +10,8 @@ class TestTransformer01(TestCase):
         cls.sut = SolverImpl()
 
     def test_transform_1(self):
-        self.assertEqual(58, self.sut.solver_part_1("2x3x4"))
-        self.assertEqual(43, self.sut.solver_part_1("1x1x10"))
+        self.assertEqual(58, self.sut.solve_part_1("2x3x4"))
+        self.assertEqual(43, self.sut.solve_part_1("1x1x10"))
 
     def test_transform_2(self):
         self.assertEqual(34, self.sut.solve_part_2("2x3x4"))

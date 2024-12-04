@@ -26,7 +26,7 @@ class SolverImpl(Solver):
         result += str(digit_dict[seq(digit_dict).filter(line.__contains__).max_by(line.rindex)])
         return int(result)
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._compute_line_1)
@@ -46,5 +46,5 @@ if __name__ == "__main__":
     data_path = file_path.parents[3].joinpath("data", f"day_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
     sut = SolverImpl()
-    print(sut.solver_part_1(data))
+    print(sut.solve_part_1(data))
     print(sut.solve_part_2(data))

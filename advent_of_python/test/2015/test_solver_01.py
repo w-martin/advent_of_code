@@ -10,15 +10,15 @@ class TestTransformer01(TestCase):
         cls.sut = SolverImpl()
 
     def test_transform_1(self):
-        self.assertEqual(0, self.sut.solver_part_1("(())"))
-        self.assertEqual(0, self.sut.solver_part_1("()()"))
-        self.assertEqual(3, self.sut.solver_part_1("((("))
-        self.assertEqual(3, self.sut.solver_part_1("(()(()("))
-        self.assertEqual(3, self.sut.solver_part_1("))((((("))
-        self.assertEqual(-1, self.sut.solver_part_1("())"))
-        self.assertEqual(-1, self.sut.solver_part_1("))("))
-        self.assertEqual(-3, self.sut.solver_part_1(")))"))
-        self.assertEqual(-3, self.sut.solver_part_1(")())())"))
+        self.assertEqual(0, self.sut.solve_part_1("(())"))
+        self.assertEqual(0, self.sut.solve_part_1("()()"))
+        self.assertEqual(3, self.sut.solve_part_1("((("))
+        self.assertEqual(3, self.sut.solve_part_1("(()(()("))
+        self.assertEqual(3, self.sut.solve_part_1("))((((("))
+        self.assertEqual(-1, self.sut.solve_part_1("())"))
+        self.assertEqual(-1, self.sut.solve_part_1("))("))
+        self.assertEqual(-3, self.sut.solve_part_1(")))"))
+        self.assertEqual(-3, self.sut.solve_part_1(")())())"))
 
     def test_transform_2(self):
         self.assertEqual(1, self.sut.solve_part_2(")"))

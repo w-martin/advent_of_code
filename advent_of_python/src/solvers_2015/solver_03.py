@@ -5,7 +5,7 @@ from solver import Solver
 
 class SolverImpl(Solver):
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         location = (0, 0)
         visited: set[tuple[int, int]] = {location}
         for character in data:

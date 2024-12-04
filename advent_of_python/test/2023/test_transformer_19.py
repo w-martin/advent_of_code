@@ -36,7 +36,7 @@ hdj{m>838:A,pv}
 {x=2127,m=1623,a=2188,s=1013}"""
 
     def test_transform_1(self):
-        self.assertEqual(19114, self.sut.solver_part_1(self.data))
+        self.assertEqual(19114, self.sut.solve_part_1(self.data))
 
     def test_transform_2(self):
         self.assertEqual(167409079868000, self.sut.solve_part_2(self.data))

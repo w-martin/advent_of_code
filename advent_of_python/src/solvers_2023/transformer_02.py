@@ -44,7 +44,7 @@ class SolverImpl(Solver):
 
         return seq(limits.values()).product()
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         return (
             seq(data.splitlines(keepends=False))
             .map(self._compute_line_1)

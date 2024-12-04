@@ -10,5 +10,5 @@ class TestTransformer04(TestCase):
         cls.sut = SolverImpl()
 
     def test_transform_1(self):
-        self.assertEqual(609043, self.sut.solver_part_1("abcdef"))
-        self.assertEqual(1048970, self.sut.solver_part_1("pqrstuv"))
+        self.assertEqual(609043, self.sut.solve_part_1("abcdef"))
+        self.assertEqual(1048970, self.sut.solve_part_1("pqrstuv"))

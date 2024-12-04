@@ -38,7 +38,7 @@ class Shape:
 
 class SolverImpl(Solver):
 
-    def solver_part_1(self, data: str) -> Any:
+    def solve_part_1(self, data: str) -> Any:
         shapes = self._parse_shapes(data)
         supports, supported_by = self._fall(shapes)
         shapes_that_cannot_be_dissolved = seq(supported_by.values()).filter(lambda x: len(x) == 1).flatten().to_set()
@@ -146,6 +146,6 @@ if __name__ == "__main__":
     data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
     data = data_path.read_text()
     sut = SolverImpl()
-    print(sut.solver_part_1(data))
+    print(sut.solve_part_1(data))
     answer_2 = sut.solve_part_2(data)
     print(answer_2)

@@ -48,7 +48,7 @@ humidity-to-location map:
         cls.sut = SolverImpl()
 
     def test_transform_1(self):
-        self.assertEqual(35, self.sut.solver_part_1(self.data))
+        self.assertEqual(35, self.sut.solve_part_1(self.data))
 
     def test_transform_2(self):
         self.assertEqual(46, self.sut.solve_part_2(self.data))

@@ -20,12 +20,12 @@ class TestTransformer10(TestCase):
         cls.real_data = data_path.read_text()
 
     def test_transform_1(self):
-        self.assertEqual(4, self.sut.solver_part_1(""".....
+        self.assertEqual(4, self.sut.solve_part_1(""".....
 .S-7.
 .|.|.
 .L-J.
 ....."""))
-        self.assertEqual(8, self.sut.solver_part_1("""..F7.
+        self.assertEqual(8, self.sut.solve_part_1("""..F7.
 .FJ|.
 SJ.L7
 |F--J

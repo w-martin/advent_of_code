@@ -23,14 +23,14 @@ class TestTransformer03(TestCase):
 ...$.*....
 .664.598.."""
         sut = SolverImpl()
-        self.assertEqual(4361, sut.solver_part_1(data))
+        self.assertEqual(4361, sut.solve_part_1(data))
 
     def test_transformer_1_with_real(self):
         file_path = Path(__file__)
         data_path = file_path.parents[2].joinpath("data", f"data_{file_path.name[-5:-3]}.txt")
         data = data_path.read_text()
         sut = SolverImpl()
-        result = sut.solver_part_1(data)
+        result = sut.solve_part_1(data)
         self.assertLess(result, 528686)
         self.assertGreater(result, 327640)
         self.assertNotEqual(521740, result)

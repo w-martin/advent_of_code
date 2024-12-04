@@ -15,7 +15,7 @@ class TestTransformer01(TestCase):
         # arrange
         data = (Path(__file__).parents[3] / "data" / "2023" / "day_01_example_part_1.txt").read_text("utf-8")
         # act assert
-        self.assertEqual(142, self.sut.solver_part_1(data))
+        self.assertEqual(142, self.sut.solve_part_1(data))
 
     def test_transform_2(self):
         # arrange
@@ -25,7 +25,7 @@ class TestTransformer01(TestCase):
 
     def test_transform_1_real_data(self):
         # act assert
-        self.assertEqual(55386, self.sut.solver_part_1(self.real_data))
+        self.assertEqual(55386, self.sut.solve_part_1(self.real_data))
 
     def test_transform_2_real_data(self):
         # act assert

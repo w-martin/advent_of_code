@@ -42,3 +42,15 @@ bash -c "$command" && hyperfine -N -r 5 "$command"
 command="poetry run python -OO -m cli 2024 4 2"
 bash -c "$command" && hyperfine -N -r 5 "$command"
 ```
+
+## Day 5
+
+```sh
+command="poetry run python -OO -m cli 2024 5 1"
+bash -c "$command"  # && hyperfine -N -r 5 "$command"
+```
+
+```sh
+command="poetry run python -OO -m cli 2024 5 2"
+bash -c "$command" && hyperfine -N -r 5 "$command"
+```

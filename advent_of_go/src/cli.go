@@ -223,6 +223,15 @@ var cmd = &cobra.Command{
 				case 2:
 					fmt.Println(solver.SolvePart2(data))
 				}
+			case 7:
+				solver := solvers_2024.Solver07{}
+				switch Part {
+				case 1:
+					fmt.Println(solver.SolvePart1(data))
+
+				case 2:
+					fmt.Println(solver.SolvePart2(data))
+				}
 			}
 		}
 	},

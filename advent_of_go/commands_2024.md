@@ -22,3 +22,12 @@ time ./cli -y 2024 -d 3 -p 1 --dataPath ../data
 ```sh
 time ./cli -y 2024 -d 3 -p 2 --dataPath ../data
 ```
+
+## Day 7
+```sh
+time ./cli -y 2024 -d 7 -p 1 --dataPath ../data
+```
+
+```sh
+time ./cli -y 2024 -d 7 -p 2 --dataPath ../data
+```

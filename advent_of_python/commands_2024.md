@@ -83,10 +83,46 @@ bash -c "$command" && hyperfine -N -r 5 "$command"
 
 ```sh
 command="poetry run python -OO -m cli 2024 9 1"
-bash -c "$command" #&& hyperfine -N -r 5 "$command"
+bash -c "$command" && hyperfine -N -r 5 "$command"
 ```
 
 ```sh
 command="poetry run python -OO -m cli 2024 9 2"
-bash -c "$command" #&& hyperfine -N -r 5 "$command"
+bash -c "$command" && hyperfine -N -r 5 "$command"
+```
+
+## Day 10
+
+```sh
+command="poetry run python -OO -m cli 2024 10 1"
+bash -c "$command" && hyperfine -N -r 5 "$command"
+```
+
+```sh
+command="poetry run python -OO -m cli 2024 10 2"
+bash -c "$command" && hyperfine -N -r 5 "$command"
+```
+
+## Day 11
+
+```sh
+command="poetry run python -OO -m cli 2024 11 1"
+bash -c "$command" && hyperfine -N -r 5 "$command"
+```
+
+```sh
+command="poetry run python -OO -m cli 2024 11 2"
+bash -c "$command" && hyperfine -N -r 5 "$command"
+```
+
+## Day 12
+
+```sh
+command="poetry run python -OO -m cli 2024 12 1"
+bash -c "$command" && hyperfine -N -r 5 "$command"
+```
+
+```sh
+command="poetry run python -OO -m cli 2024 12 2"
+bash -c "$command" && hyperfine -N -r 5 "$command"
 ```

@@ -1,7 +1,6 @@
 import heapq
 
 import numpy as np
-from functional import seq
 
 from solver import Solver
 

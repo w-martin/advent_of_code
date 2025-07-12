@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from solvers_2015.solver_template import SolverImpl
+from solver_template import SolverImpl
 
 
 class TestTransformerTemplate(TestCase):

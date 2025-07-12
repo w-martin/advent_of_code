@@ -1,9 +1,9 @@
 from collections import defaultdict
-from dataclasses import dataclass
 
 from functional import seq
 
 from solver import Solver
+
 
 class SolverImpl(Solver):
 

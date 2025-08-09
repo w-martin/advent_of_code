@@ -55,14 +55,18 @@ command="poetry run python -OO -m cli 2016 4 2"
 bash -c "$command" && hyperfine -N -r 2 "$command"
 ```
 
+## Day 8
+
+```sh
+PYTHONPATH=src poetry run python -OO -m src.cli 2016 8 1
+```
+
 ## Day 9
 
 ```sh
-command="poetry run python -OO -m cli 2016 9 1"
-bash -c "$command" && hyperfine -N -r 5 "$command"
+PYTHONPATH=src poetry run python -OO -m src.cli 2016 9 1
 ```
 
 ```sh
-command="poetry run python -OO -m cli 2016 9 2"
-bash -c "$command" && hyperfine -N -r 5 "$command"
+PYTHONPATH=src poetry run python -OO -m src.cli 2016 9 2
 ```
